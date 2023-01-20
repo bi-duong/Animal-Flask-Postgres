@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<section class="banner-area">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-12 banner-right">
+          <h1 class="text-white">
+            About Us
+          </h1>
+          <div class="link-nav">
+            <span class="box">
+              <a href="index.html">Home </a>
+              <i class="lnr lnr-arrow-right"></i>
+              <a href="about.html">Classified</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+		<div class="container">
+
+            <form action = "/success" method = "post" enctype="multipart/form-data">
+       <center><input type="file" class="genric-btn primary" name="file" /></center>
+                <center><input class="genric-btn warning-border" type = "submit" value="Upload"></center>
+
+    </form>
+
+        </div>
+        <div class="section-top-border">
+				<h3 class="mb-20"><center>Animals Present in this Image</center></h3>
+				<div class="progress-table-wrap">
+					<div class="progress-table">
+						<div class="table-row">
+                            <div class="serial"></div>
+                            <div class="serial">01</div>
+							<div class="country genric-btn info-border" style="margin-right:10vh;"> Presence of Tiger:</div>
+							<div class="visit genric-btn primary circle">{{tiger_score}} %</div>
+
+						</div>
+                        <div class="table-row">
+                            <div class="serial"></div>
+                            <div class="serial">02</div>
+							<div class="country genric-btn info-border" style="margin-right:10vh;"> Presence of Elephant:</div>
+							<div class="visit genric-btn primary circle">{{elephant_score}} %</div>
+
+						</div>
+                         <div class="table-row">
+                             <div class="serial"></div>
+                            <div class="serial">03</div>
+							<div class="country genric-btn info-border" style="margin-right:10vh;"> Presence of Panda:</div>
+							<div class="visit genric-btn primary circle">{{panda_score}} %</div>
+
+						</div>
+
+
+
+
+
+
+
+
+					</div>
+				</div>
+			</div>
+
+
+
+
+{% endblock %}

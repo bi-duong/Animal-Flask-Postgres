@@ -1,0 +1,105 @@
+{% extends 'layout.html' %}
+{% block content %}
+ <section class="banner-area">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-12 banner-right">
+                    <h1 class="text-white">
+                        Chi tiết thông tin động vật
+                    </h1>
+                    <p class="mx-auto text-white  mt-20 mb-40">
+
+                    </p>
+                    <div class="link-nav">
+                        <span class="box">
+                            <a href="index.html">Home </a>
+                            <i class="lnr lnr-arrow-right"></i>
+                            <a href="courses.html">Động vật</a>
+                            <i class="lnr lnr-arrow-right"></i>
+                            <a href="course-details.html">Chi tiết động vật</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="course-details-area section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 course-details-left">
+                    <div class="main-image">
+                        <img class="img-fluid" src="/static/uploads/{{ animal_detail['file_name'] }}" alt="" style="height:100vh;width:150vh;">
+                    </div>
+                    <div class="content-wrapper">
+                        <h4 class="title">Thông tin chi tiết</h4>
+                        <div class="content">
+{{ animal_detail['decription'] }}
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 right-contents">
+                    <ul>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Loại động vật</p>
+                                <span class="or">{{ animal_detail['ltype'] }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Ngành động vật </p>
+                                <span>{{ animal_detail['branch'] }}</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Thời gian được cập nhật thông tin </p>
+                                <span>{{ animal_detail['uploaded_on'] }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn text-uppercase enroll">{{ animal_detail['fname'] }}</a>
+
+                    <h4 class="title">Reviews</h4>
+                    <div class="content">
+
+                        <div class="feedeback">
+                            <h6 class="mb-10">Your Feedback</h6>
+                            <textarea name="feedback" class="form-control" cols="10" rows="10"></textarea>
+                            <div class="mt-10 text-right">
+                                <a href="#" class="btn text-center text-uppercase enroll">Submit</a>
+                            </div>
+                        </div>
+                        <div class="comments-area mb-30">
+                            <div class="comment-list">
+                                <div class="single-comment single-reviews justify-content-between d-flex">
+                                    <div class="user justify-content-between d-flex">
+                                        <div class="thumb">
+                                            <img src="img/blog/c1.jpg" alt="">
+                                        </div>
+                                        <div class="desc">
+                                            <h5><a href="#">Bi Smarck</a>
+
+                                            </h5>
+                                            <p class="comment">
+                                                Hiền lắm nha mn
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

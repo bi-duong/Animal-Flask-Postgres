@@ -1,0 +1,89 @@
+{% extends 'admin/layout.html' %}
+{% block content %}
+<div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Ngành động vật</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Thêm ngành động vật</a></li>
+                    </ol>
+                </div>
+            </div>
+       <div class="row" style="margin-left:50px;">
+              <div class="col-lg-12 mb-4">
+                  <div class="card">
+                    <div class="table-responsive" >
+ {% with messages = get_flashed_messages()  %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+                        <form action="/admin/addbranch" method="post" enctype="multipart/form-data">
+                        <table class="table align-items-center table-flush">
+                            <tbody>
+
+                <tr>
+                    <td>
+                        <label>Nhập ngành động vật</label>
+                    </td>
+                    <td>
+                        <input name="name_branch" type="text" placeholder="Nhập ngành động vật..." class="form-control" />
+                    </td>
+                </tr>
+
+
+
+
+
+
+
+                <tr>
+                    <td></td>
+                    <td>
+
+                    <button type="submit" name="submit"  class="btn btn-primary " value="UPLOAD">Submit</button>
+
+
+                    </td>
+                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                    </div>
+
+                  </div>
+              </div>
+          </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function(){
+ // File type validation
+    $("#fileInput").change(function(){
+        var fileLength = this.files.length;
+        var match= ["image/jpeg","image/png","image/jpg","image/gif"];
+        var i;
+        for(i = 0; i < fileLength; i++){
+            var file = this.files[i];
+            var imagefile = file.type;
+            if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]) || (imagefile==match[3]))){
+                alert('Please select a valid image file (JPEG/JPG/PNG/GIF).');
+                $("#fileInput").val('');
+                return false;
+            }
+        }
+    });
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,140 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!-- ================ start banner Area ================= -->
+  <section class="home-banner-area">
+    <div class="container">
+      <div class="row justify-content-center fullscreen align-items-center">
+        <div class="col-lg-5 col-md-8 home-banner-left">
+          <h1 class="text-white">
+            Chào mừng bạn đến với
+            động vật
+          </h1>
+          <p class="mx-auto text-white  mt-20 mb-40">
+            Trang web cung cấp những thông tin, những kiến thức liên quan về động vật và và cứu trợ động vật
+          </p>
+        </div>
+        <div class="offset-lg-2 col-lg-5 col-md-12 home-banner-right">
+          <img class="img-fluid" src="{{ url_for('static', filename='img/dog.png') }}" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================ End banner Area ================= -->
+<!-- ================ Start Feature Area ================= -->
+  <section class="feature-area">
+    <div class="container-fluid">
+      <div class="feature-inner row">
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex">
+            <img src="{{ url_for('static', filename='img/4.png') }} " style="height:10vh;">
+            <div class="ml-20">
+              <h4>Động vật</h4>
+              <p>
+                Giới thiệu một số động vật
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex">
+            <img src="{{ url_for('static', filename='img/5.png') }} " style="height:10vh;">
+            <div class="ml-20">
+              <h4>Hỗ trợ động vật</h4>
+              <p>
+                Hỗ trợ các loài động vật
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex border-right-0">
+            <img src="{{ url_for('static', filename='img/3.png') }} " style="height:10vh;">
+            <div class="ml-20">
+              <h4>Bài viết</h4>
+              <p>
+                Cung cấp các bài viết về động vật
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================ End Feature Area ================= -->
+ <section class="popular-course-area section-gap">
+    <div class="container-fluid">
+      <div class="row justify-content-center section-title">
+        <div class="col-lg-12">
+          <h2>
+            Một số <br />
+            Loại động vật phổ biến
+          </h2>
+          <p>
+
+          </p>
+        </div>
+      </div>
+      <div class="owl-carousel popuar-course-carusel">
+        {% for row in list %}
+        <div class="single-popular-course">
+          <div class="thumb">
+            <img class="f-img img-fluid mx-auto" src="/static/uploads/{{row.file_name}}" alt=""style="height:50vh;" />
+          </div>
+          <div class="details">
+            <div class="d-flex justify-content-between mb-20">
+              <p class="name">{{row.ltype}}</p>
+
+            </div>
+            <a href="/detailanimal/{{row[0]}}">
+              <h4>{{row.fname}}</h4>
+            </a>
+
+          </div>
+        </div>
+{% endfor %}
+
+
+      </div>
+    </div>
+  </section>
+<section class="registration-area">
+    <div class="container">
+      <div class="row align-items-end">
+        <div class="col-lg-5">
+          <div class="section-title text-left text-white">
+            <h2 class="text-white">
+              Liên hệ với chúng tôi <br>
+              tại đây
+            </h2>
+            <p>
+              Nếu có thông tin về động vật gặp nguy hiểm, xin vui lòng liên hệ với chúng tôi
+            </p>
+          </div>
+        </div>
+        <div class="offset-lg-3 col-lg-4 col-md-6">
+          <div class="course-form-section">
+            <h3 class="text-white">Gửi về đây</h3>
+            <p class="text-white">Vui lòng điền các thông tin dưới đây</p>
+            <form class="course-form-area contact-page-form course-form text-right" id="myForm" action="mail.html" method="post">
+              <div class="form-group col-md-12">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name" onfocus="this.placeholder = ''"
+                 onblur="this.placeholder = 'Name'">
+              </div>
+              <div class="form-group col-md-12">
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Phone Number" onfocus="this.placeholder = ''"
+                 onblur="this.placeholder = 'Phone Number'">
+              </div>
+              <div class="form-group col-md-12">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" onfocus="this.placeholder = ''"
+                 onblur="this.placeholder = 'Email Address'">
+              </div>
+              <div class="col-lg-12 text-center">
+                <button class="btn text-uppercase">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

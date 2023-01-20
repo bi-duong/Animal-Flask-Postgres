@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resigter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <div class="overlay"></div>
+   <form action="{{ url_for('register') }}" method="post" class="box">
+       <div class="header">
+           <h4>Đăng ký tài khoản</h4>
+           <p>Mời mọi người điền thông tin ạ</p>
+       </div>
+        {% with messages = get_flashed_messages()  %}
+    {% if messages %}
+    {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+       <div class="login-area">
+           <input type="text" class="username" placeholder="Full name" name="fullname">
+           <input type="text" class="password" placeholder="username" name="username">
+           <input type="password" class="password" placeholder="Password" name="password">
+           <input type="email" class="password" placeholder="Email" name="email">
+           <input type="number" class="password" placeholder="Phone" name="phone">
+           <input type="hidden" class="password" placeholder="Password" name="level" value="3">
+           <input type="submit" value="Register" class="submit" >
+
+
+           <a href="{{ url_for('login_user') }}">Back</a>
+       </div>
+   </form>
+</body>
+</html>

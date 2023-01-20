@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+  <section class="banner-area">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-12 banner-right">
+          <h1 class="text-white">
+            About Us
+          </h1>
+          <div class="link-nav">
+            <span class="box">
+              <a href="index.html">Home </a>
+              <i class="lnr lnr-arrow-right"></i>
+              <a href="about.html">About</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="about-area section-gap">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-lg-5 col-md-6 about-left">
+          <img class="img-fluid" src="{{ url_for('static', filename='img/pet_care.png') }}" alt="">
+        </div>
+        <div class="offset-lg-1 col-lg-5 col-md-12 about-right">
+          <h1>
+            Thông tin về <br>
+              Chúng tôi
+          </h1>
+          <div>
+            <p>
+              Trang web cung cấp các thông tin về động vật cũng như hỗ trợ bảo vệ động vật
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="video-area section-gap-bottom">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5">
+          <div class="section-title text-white">
+            <h2 class="text-white">
+             Bạn đã sẵn sàng khám phá?
+            </h2>
+
+          </div>
+        </div>
+        <div class="offset-lg-1 col-md-6 video-left">
+          <div class="">
+            <div class="single-video">
+              <div class="video-part">
+                <img class="img-fluid" src="{{ url_for('static', filename='img/image_6.jpg') }}" alt="">
+                <div class="overlay"></div>
+                <a class="popup-youtube play-btn" href="https://www.youtube.com/watch?v=DH8ljvNcwbw">
+                  <img class="play-icon" src="{{ url_for('static', filename='img/play-btn.png') }}" alt="">
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

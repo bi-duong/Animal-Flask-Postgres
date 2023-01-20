@@ -1,0 +1,134 @@
+{% extends 'admin/layout.html' %}
+{% block content %}
+<div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Động vật</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Thêm động vật</a></li>
+                    </ol>
+                </div>
+            </div>
+       <div class="row" style="margin-left:50px;">
+              <div class="col-lg-12 mb-4">
+                  <div class="card">
+                    <div class="table-responsive" >
+ {% with messages = get_flashed_messages()  %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+                        <form action="/admin/animaladd" method="post" enctype="multipart/form-data">
+                        <table class="table align-items-center table-flush">
+                            <tbody>
+                                <tr>
+                    <td>
+                        <label>Tên động vật</label>
+                    </td>
+                    <td>
+                        <input name="fname" type="text" placeholder="Nhập tên động vật..." class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Nhập loại động vật</label>
+                    </td>
+                    <td>
+                                 <select name="ltype"  class="form-control selectpicker" data-live-search="true" multiple>
+			{% for row in list %}
+			<option value="{{row.name_type}}">{{row.name_type}}</option>
+			{% endfor %}
+		</select>
+                    </td>
+                </tr>
+
+
+                                <tr>
+                                    <td>Nhập ngành động vật</td>
+
+                                 <td>
+   <select name="branch"  class="form-control selectpicker" data-live-search="true" multiple>
+			{% for row in li %}
+			<option value="{{row.name_branch}}">{{row.name_branch}}</option>
+			{% endfor %}
+		</select>
+
+                    </td>
+
+              <tr>
+                                      <tr>
+                    <td>
+                        <label>Nhập mô tả</label>
+                    </td>
+                    <td>
+                        <input name="decription" type="text" placeholder="Nhập mô tả..." class="form-control" id="mytextarea" style="height:50vh" />
+                    </td>
+
+                </tr>
+                    <td>
+                        <label>Choose Images: </label>
+                    </td>
+                    <td>
+                        <input type="file" name="files[]" id="fileInput" class="form-control" multiple >
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td></td>
+                    <td>
+
+                    <button type="submit" name="submit"  class="btn btn-primary " value="UPLOAD">Submit</button>
+
+
+                    </td>
+                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                    </div>
+
+                  </div>
+              </div>
+          </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function(){
+ // File type validation
+    $("#fileInput").change(function(){
+        var fileLength = this.files.length;
+        var match= ["image/jpeg","image/png","image/jpg","image/gif"];
+        var i;
+        for(i = 0; i < fileLength; i++){
+            var file = this.files[i];
+            var imagefile = file.type;
+            if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]) || (imagefile==match[3]))){
+                alert('Please select a valid image file (JPEG/JPG/PNG/GIF).');
+                $("#fileInput").val('');
+                return false;
+            }
+        }
+    });
+});
+</script>
+<script src="{{ url_for('static', filename='tinymce/jquery.tinymce.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='tinymce/tinymce.min.js') }}" type="text/javascript"></script>
+  <script type="text/javascript">
+  tinymce.init({
+    selector: '#mytextarea'
+  });
+  </script>
+{% endblock %}
